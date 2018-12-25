@@ -31,18 +31,20 @@ namespace Scrapyard.CLI
                     if (o.Verbose)
                         Console.WriteLine($"Finished parsing directories in {watch.ElapsedMilliseconds}ms");
 
-                    var attributes = File.GetAttributes(o.OutputFile);
                     var output = o.OutputFile;
-
-                    if (attributes.HasFlag(FileAttributes.Directory))
-                        output = Path.Join(output, "Package.nx");
+                    if (File.Exists(o.OutputFile))
+                    {
+                        var attributes = File.GetAttributes(o.OutputFile);
+                        if (attributes.HasFlag(FileAttributes.Directory))
+                            output = Path.Join(output, "Package.nx");
+                    }
 
                     var encoder = new NXEncoder();
 
                     watch.Restart();
 
                     using (var stream = new FileStream(output,
-                        FileMode.Create,
+                        FileMode.OpenOrCreate,
                         FileAccess.Write,
                         FileShare.None
                     ))
