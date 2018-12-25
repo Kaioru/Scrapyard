@@ -43,6 +43,8 @@ namespace Scrapyard.CLI
 
                     watch.Restart();
 
+                    Directory.CreateDirectory(Path.GetDirectoryName(output));
+
                     using (var stream = new FileStream(output,
                         FileMode.OpenOrCreate,
                         FileAccess.Write,
