@@ -24,9 +24,9 @@ namespace Scrapyard.CLI
             => Parser.Default.ParseArguments<Options>(args)
                 .WithParsed<Options>(o =>
                 {
+                    var watch = Stopwatch.StartNew();
                     var decoder = new DirectoryDecoder();
                     var node = decoder.Decode(o.InputDirectory);
-                    var watch = Stopwatch.StartNew();
 
                     if (o.Verbose)
                         Console.WriteLine($"Finished parsing directories in {watch.ElapsedMilliseconds}ms");
