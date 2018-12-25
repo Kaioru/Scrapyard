@@ -47,7 +47,9 @@ namespace Scrapyard.Core.Codecs
                 {
                     writer.Write(addString(n.Name));
                     writer.Write((uint) nextChildID);
-                    writer.Write((ushort) node.Children.Count);
+                    writer.Write((ushort) n.Children.Count);
+
+                    nextChildID += n.Children.Count;
 
                     switch (n)
                     {
