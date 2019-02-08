@@ -68,6 +68,7 @@ namespace Scrapyard.Core.Codecs
                         case Node<string> stringNode:
                             writer.Write((ushort) 3);
                             writer.Write(addString(stringNode.Data));
+                            writer.Write((uint) 0);
                             break;
                         case Node<Point> pointNode:
                             writer.Write((ushort) 4);
