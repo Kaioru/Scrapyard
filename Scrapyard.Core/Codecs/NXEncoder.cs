@@ -96,8 +96,10 @@ namespace Scrapyard.Core.Codecs
             {
                 ensureMultiple(2);
                 stringsOffsets[stringsRunningID++] = (ulong) writer.BaseStream.Position;
-                writer.Write((ushort) str.Length);
-                writer.Write(Encoding.UTF8.GetBytes(str));
+
+                var data = Encoding.UTF8.GetBytes(str);
+                writer.Write((ushort) data.Length);
+                writer.Write(data);
             }
 
             ensureMultiple(8);
