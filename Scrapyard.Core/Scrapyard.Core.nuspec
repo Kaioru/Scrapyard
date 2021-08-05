@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.0.0</version>
+    <title>Scrapyard</title>
+    <authors>Kaioru</authors>
+    <projectUrl>https://github.com/Kaioru/Scrapyard</projectUrl>
+    <description>A bundling tool to package folders and .json files into a NX PKG4.1 compliant file.</description>
+    <tags>scrapyard json-to-nx converter</tags>
+  </metadata>
+</package>
